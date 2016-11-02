@@ -6,6 +6,12 @@
 # * awscli - pip install awscli
 # * jq - yum install jq
 # * mail - yum install mail
+# * IAM Role Policy
+#	* "ec2:CreateSnapshot"
+#	* "ec2:CreateTags"
+# 	* "ec2:DeleteSnapshot"
+#	* "ec2:DescribeSnapshots"
+#	* "ec2:DescribeVolumes"
 
 LOCKFILE=/tmp/.ebs-snapshot.lock
 TEMPFILE=/tmp/.ebs-snapshot-${RANDOM}.tmp

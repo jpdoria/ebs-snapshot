@@ -1,4 +1,4 @@
-# About #
+# About
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/powered-by-oxygen.svg)](http://forthebadge.com)
@@ -6,12 +6,36 @@
 
 This is the script that can help you create EBS snapshots for your EC2 instances.
 
-# Prerequisites #
+# Prerequisites
 * awscli - pip install awscli
 * jq - yum install jq
 * mail - yum install mail
+* IAM Role Policy
 
-# Usage #
+# IAM Role Policy
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt0123456789012",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateSnapshot",
+                "ec2:CreateTags",
+                "ec2:DeleteSnapshot",
+                "ec2:DescribeSnapshots",
+                "ec2:DescribeVolumes"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+# Usage
 ```
 Usage: ./ebs-snapshot-v2.sh [-r <region>] [-b | -d <age>]
        	-r     	: AWS region
